@@ -1,0 +1,11 @@
+/**app.wxss**/
+.container {
+    height: 100%;
+    font-size: 24rpx;
+}
+.fr{
+    float: right;
+}
+.dn{
+    display: none;
+}

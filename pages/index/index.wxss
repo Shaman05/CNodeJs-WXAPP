@@ -1,0 +1,56 @@
+.is-refresh,
+.is-loadMore{
+    padding-top: 20rpx;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.is-loadMore{
+    padding-bottom: 80rpx;
+}
+.topic-item{
+    padding: 30rpx 20rpx;
+    border-bottom: 1px solid #cccccc;
+}
+.topic-h{
+    /*width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;*/
+    height: 40rpx;
+    padding-right: 20rpx;
+    overflow: hidden;
+    word-break: break-all;
+    margin-bottom: 16rpx;
+}
+.topic-type{
+    height: 20rpx;
+    width: 40rpx;
+    border-radius: 3px;
+    background: green;
+    color: white;
+    padding: 2px 4px;
+    margin-right: 4px;
+}
+.topic-title{
+    font-weight: bold;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+.topic-more{
+    padding-left: 100rpx;
+    overflow: hidden;
+}
+.author-face{
+    float: left;
+    height: 80rpx;
+    width: 80rpx;
+    overflow: hidden;
+    border-radius: 40rpx;
+    margin-left: -100rpx;
+}
+.text{
+    line-height: 40rpx;
+}
+.re{
+    color: green;
+}
