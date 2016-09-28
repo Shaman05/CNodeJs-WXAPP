@@ -6,6 +6,8 @@
 * 主题列表（分类查看）
 * 主题详情（含回复）
 
+接口地址：[https://cnodejs.org/api](https://cnodejs.org/api)
+
 ![image](https://github.com/Shaman05/CNodeJs-WXAPP/blob/master/docs/images/view.gif)
 
 ## 吐槽一下
