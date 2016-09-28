@@ -31,9 +31,15 @@ Page({
         });
         api.getTopic(id, function (res) {
             var article = res.data;
+            console.time('transform data');
             article.create_at = diffTime(+new Date(article.create_at));
             article.last_reply_at = diffTime(+new Date(article.last_reply_at));
             article.tabText = transformTab(article.tab);
+            article.replies.map(function(reply){
+                reply.create_at = diffTime(+new Date(reply.create_at));
+                return reply;
+            });
+            console.timeEnd('transform data');
             if(article.good){
                 article.mark = '精华';
             }

@@ -8,6 +8,42 @@
 .is-loadMore{
     padding-bottom: 80rpx;
 }
+.container{
+    padding-top: 72rpx;
+}
+.tab-nav{
+    height: 72rpx;
+    background: #595959;
+    width:100%;
+    position: fixed;
+    top:0;
+    z-index:1;
+    overflow: hidden;
+}
+.scroll-content{
+    position: absolute;
+    top: 72rpx;
+    bottom: 0;
+    width: 100%;
+}
+.tab-nav-item{
+    display:inline-block;
+    width: 20%;
+    color: #80bd01;
+    text-align: center;
+    line-height: 72rpx;
+    font-size: 28rpx;
+    position: relative;
+}
+.current::after{
+    content: "";
+    height: 5px;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: -3px;
+    background: #80bd01;
+}
 .topic-item{
     padding: 30rpx 20rpx;
     border-bottom: 1px solid #cccccc;

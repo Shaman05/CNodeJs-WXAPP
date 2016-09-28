@@ -21,6 +21,14 @@ Page({
     onLoad: function () {
         this.getTopics(1, true);
     },
+    tabTo: function (event) {
+        var tab = event.target.dataset.tab;
+        this.setData({
+            tab: tab,
+            topics: []
+        });
+        this.getTopics(1, true);
+    },
     getTopics: function (page, isRefresh) {
         var _this = this;
         if(isRefresh){

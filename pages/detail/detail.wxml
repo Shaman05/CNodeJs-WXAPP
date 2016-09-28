@@ -18,6 +18,20 @@
     <view class="content">
         <text>{{article.content}}</text>
     </view>
+    <view class="reply">
+        <block wx:if="{{article.replies.length > 0}}" wx:for="{{article.replies}}" wx:for-item="reply">
+            <view class="reply-item">
+                <image class="reply-author-face" mode="aspectFit" src="{{reply.author.avatar_url}}">
+                </image>
+                <text class="reply-name">{{reply.author.loginname}}</text>
+                <text class="reply-time">{{reply.create_at}}</text>
+                <text class="reply-content">{{reply.content}}</text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="no-reply">暂无回复！</view>
+        </block>
+    </view>
     <modal title="无效的文章ID"
            confirm-text="确定"
            hidden="{{validId}}"

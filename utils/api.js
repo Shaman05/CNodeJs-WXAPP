@@ -45,7 +45,7 @@ function responseData(data, callback) {
     }
     setTimeout(function () {
         callback(data);
-    }, 300)
+    }, 1000);
 
 }
 

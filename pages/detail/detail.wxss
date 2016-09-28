@@ -39,6 +39,7 @@
     padding: 20rpx 0;
     word-break: break-all;
     overflow: hidden;
+    border-bottom: 1px solid #cccccc;
 }
 .ask{
     color: gray;
@@ -48,4 +49,37 @@
 }
 .job{
     color: #ff2ccf;
+}
+.reply{
+    padding: 20rpx 0;
+}
+.reply-item{
+    padding: 20rpx 0 20rpx 80rpx;
+    border-bottom: 1px dotted #cccccc;
+    overflow: hidden;
+}
+.reply-author-face{
+    height: 60rpx;
+    width: 60rpx;
+    border-radius: 4px;
+    float: left;
+    margin-left: -80rpx;
+}
+.reply-name{
+    color: #00b4ff;
+}
+.reply-name::after{
+    content: "";
+    height: 4px;
+    width: 4px;
+    display: inline-block;
+    border-radius: 2px;
+    background: #00b4ff;
+    margin: 0 6px 0 4px;
+    position: relative;
+    top: -2px;
+}
+.reply-content{
+    display: block;
+    padding-top: 14rpx;
 }

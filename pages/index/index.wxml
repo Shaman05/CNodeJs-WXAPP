@@ -1,40 +1,49 @@
 <!--index.wxml-->
 <view class="container">
-    <scroll-view
-        scroll-y="true"
-        style="height: 100%"
-        bindscrolltoupper="upper"
-        bindscrolltolower="lower"
-        bindscroll="scroll">
-        <block wx:if="{{isRefresh}}">
-            <text class="is-refresh">正在刷新数据...</text>
-        </block>
-        <block wx:for="{{topics}}" wx:for-item="topic">
-            <view class="topic-item {{test}}">
-                <view class="topic-h">
-                    <text class="topic-type top" wx:if="{{topic.top === true}}">置顶</text>
-                    <text class="topic-type jh" wx:if="{{topic.good === true}}">精华</text>
-                    <text class="topic-type ask" wx:if="{{topic.tab === 'ask'}}">问答</text>
-                    <text class="topic-type share" wx:if="{{topic.tab === 'share'}}">分享</text>
-                    <text class="topic-type job" wx:if="{{topic.tab === 'job'}}">招聘</text>
-                    <text class="topic-title" bindtap="viewDetail" data-id="{{topic.id}}">{{topic.title}}</text>
-                </view>
-                <view class="topic-more">
-                    <image class="author-face" mode="aspectFit" src="{{topic.author.avatar_url}}">
-                    </image>
-                    <view class="text">
-                        <text>{{topic.author.loginname}}</text>
-                        <view class="topic-re-vi fr"><text class="re">{{topic.reply_count}}</text>/{{topic.visit_count}}</view>
+    <view class="tab-nav">
+        <view class="tab-nav-item {{tab === 'all' ? 'current' : ''}}" data-tab="all" catchtap="tabTo">全部</view>
+        <view class="tab-nav-item {{tab === 'good' ? 'current' : ''}}" data-tab="good" catchtap="tabTo">精华</view>
+        <view class="tab-nav-item {{tab === 'share' ? 'current' : ''}}" data-tab="share" catchtap="tabTo">分享</view>
+        <view class="tab-nav-item {{tab === 'ask' ? 'current' : ''}}" data-tab="ask" catchtap="tabTo">问答</view>
+        <view class="tab-nav-item {{tab === 'job' ? 'current' : ''}}" data-tab="job" catchtap="tabTo">招聘</view>
+    </view>
+    <view class="scroll-content">
+        <scroll-view
+            scroll-y="true"
+            style="height: 100%"
+            bindscrolltoupper="upper"
+            bindscrolltolower="lower"
+            bindscroll="scroll">
+            <block wx:if="{{isRefresh}}">
+                <text class="is-refresh">正在刷新数据...</text>
+            </block>
+            <block wx:for="{{topics}}" wx:for-item="topic">
+                <view class="topic-item {{test}}">
+                    <view class="topic-h">
+                        <text class="topic-type top" wx:if="{{topic.top === true}}">置顶</text>
+                        <text class="topic-type jh" wx:if="{{topic.good === true}}">精华</text>
+                        <text class="topic-type ask" wx:if="{{topic.tab === 'ask'}}">问答</text>
+                        <text class="topic-type share" wx:if="{{topic.tab === 'share'}}">分享</text>
+                        <text class="topic-type job" wx:if="{{topic.tab === 'job'}}">招聘</text>
+                        <text class="topic-title" bindtap="viewDetail" data-id="{{topic.id}}">{{topic.title}}</text>
                     </view>
-                    <view class="text">
-                        <text>创建于：{{topic.create_at}}</text>
-                        <text class="fr">{{topic.last_reply_at}}</text>
+                    <view class="topic-more">
+                        <image class="author-face" mode="aspectFit" src="{{topic.author.avatar_url}}">
+                        </image>
+                        <view class="text">
+                            <text>{{topic.author.loginname}}</text>
+                            <view class="topic-re-vi fr"><text class="re">{{topic.reply_count}}</text>/{{topic.visit_count}}</view>
+                        </view>
+                        <view class="text">
+                            <text>创建于：{{topic.create_at}}</text>
+                            <text class="fr">{{topic.last_reply_at}}</text>
+                        </view>
                     </view>
                 </view>
+            </block>
+            <view class="is-loadMore">
+                <text wx:if="{{isLoadMore}}">正在加载更多数据...</text>
             </view>
-        </block>
-        <view class="is-loadMore">
-            <text wx:if="{{isLoadMore}}">正在加载更多数据...</text>
-        </view>
-    </scroll-view>
+        </scroll-view>
+    </view>
 </view>
