@@ -2,6 +2,10 @@
 
 跟着潮流玩下微信小程序，用微信官方提供的开发者工具破解版做了个 [CNodeJS中文社区](https://cnodejs.org/) 的小程序。
 
+简单的实现了：
+* 主题列表（分类查看）
+* 主题详情（含回复）
+
 ![image](https://github.com/Shaman05/CNodeJs-WXAPP/blob/master/docs/images/view.gif)
 
 ## 吐槽一下
