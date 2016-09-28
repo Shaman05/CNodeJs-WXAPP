@@ -4,7 +4,7 @@
 
 
 module.exports = {
-    getTopic: function (options, callback) {
+    getTopics: function (options, callback) {
         var apiUrl = 'https://cnodejs.org/api/v1/topics?';
         if(typeof options === 'function'){
             callback = options;
@@ -13,10 +13,23 @@ module.exports = {
         var params = {
             page: options.page || 1,
             limit: options.limit || 10,
-            type: options.type || 'ask',
+            tab: options.tab || 'all',
             mdrender: true
         };
-        apiUrl = apiUrl + serialize(params);
+        apiUrl += serialize(params);
+        fetch(apiUrl).then(function (res) {
+            res.json().then(function(data){
+                responseData(data, callback);
+            });
+        });
+    },
+    getTopic: function (topicId, callback) {
+        var params = {
+            mdrender: false,
+            accesstoken: ''
+        };
+        var apiUrl = 'https://cnodejs.org/api/v1/topic/' + topicId + '?';
+        apiUrl += serialize(params);
         fetch(apiUrl).then(function (res) {
             res.json().then(function(data){
                 responseData(data, callback);
@@ -30,15 +43,14 @@ function responseData(data, callback) {
         console.log('接口调用异常！');
         return;
     }
-    callback(data);
+    setTimeout(function () {
+        callback(data);
+    }, 300)
+
 }
 
 function serialize(object) {
-    var params = [];
-    for(var key in object){
-        if(object.hasOwnProperty(key)){
-            params.push(key + '=' + object[key]);
-        }
-    }
-    return params.join('&');
+    return Object.keys(object).map(function (k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(object[k]);
+    }).join('&');
 }

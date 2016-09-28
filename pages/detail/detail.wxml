@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="title">
+        <text>{{article.title}}</text>
+    </view>
+    <view class="info">
+        <image class="author-face" mode="aspectFit" src="{{article.author.avatar_url}}">
+        </image>
+        <view class="text">
+            <text>作者：{{article.author.loginname}}</text>
+            <text>发布于：{{article.create_at}}</text>
+            <text>浏览次数：{{article.visit_count}}</text>
+            <text>最后一次编辑：{{article.last_reply_at}}</text>
+            <text class="{{article.tab}}">来自：{{article.tabText}}</text>
+        </view>
+        <view class="mark" wx:if="{{article.mark}}">{{article.mark}}</view>
+    </view>
+    <view class="content">
+        <text>{{article.content}}</text>
+    </view>
+    <modal title="无效的文章ID"
+           confirm-text="确定"
+           hidden="{{validId}}"
+           no-cancel="true"
+           bindconfirm="onErrorOk">
+    </modal>
+    <loading hidden="{{!loading}}">
+        加载中...
+    </loading>
+</view>

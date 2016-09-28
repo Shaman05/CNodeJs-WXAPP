@@ -12,8 +12,12 @@
         <block wx:for="{{topics}}" wx:for-item="topic">
             <view class="topic-item {{test}}">
                 <view class="topic-h">
-                    <text class="topic-type">置顶</text>
-                    <text class="topic-title">{{topic.title}}</text>
+                    <text class="topic-type top" wx:if="{{topic.top === true}}">置顶</text>
+                    <text class="topic-type jh" wx:if="{{topic.good === true}}">精华</text>
+                    <text class="topic-type ask" wx:if="{{topic.tab === 'ask'}}">问答</text>
+                    <text class="topic-type share" wx:if="{{topic.tab === 'share'}}">分享</text>
+                    <text class="topic-type job" wx:if="{{topic.tab === 'job'}}">招聘</text>
+                    <text class="topic-title" bindtap="viewDetail" data-id="{{topic.id}}">{{topic.title}}</text>
                 </view>
                 <view class="topic-more">
                     <image class="author-face" mode="aspectFit" src="{{topic.author.avatar_url}}">
@@ -24,7 +28,7 @@
                     </view>
                     <view class="text">
                         <text>创建于：{{topic.create_at}}</text>
-                        <text class="fr dn">{{topic.last_reply_at}}</text>
+                        <text class="fr">{{topic.last_reply_at}}</text>
                     </view>
                 </view>
             </view>

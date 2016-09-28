@@ -26,10 +26,24 @@
     height: 20rpx;
     width: 40rpx;
     border-radius: 3px;
-    background: green;
     color: white;
     padding: 2px 4px;
     margin-right: 4px;
+}
+.top{
+    background: green;
+}
+.jh{
+    background: goldenrod;
+}
+.ask{
+    background: gray;
+}
+.share{
+    background: #00b4ff;
+}
+.job{
+    background: #ff2ccf;
 }
 .topic-title{
     font-weight: bold;

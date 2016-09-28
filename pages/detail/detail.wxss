@@ -1,0 +1,51 @@
+.container{
+    padding: 0 20rpx;
+}
+.title{
+    padding-top: 20rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+}
+.info{
+    padding: 30rpx 0 20rpx 200rpx;
+    border-bottom: 1px solid #cccccc;
+    overflow: hidden;
+    position: relative;
+}
+.author-face{
+    float: left;
+    height: 140rpx;
+    width: 140rpx;
+    border-radius: 70rpx;
+    margin-left: -200rpx;
+}
+.text text{
+    display: block;
+    padding-top: 12rpx;
+    font-size: 28rpx;
+}
+.mark{
+    padding: 4rpx 10rpx;
+    position: absolute;
+    border: 1px dotted darkred;
+    color: darkred;
+    font-weight: bold;
+    font-size: 80rpx;
+    top: 50rpx;
+    right: 30rpx;
+    transform: rotate(45deg);
+}
+.content{
+    padding: 20rpx 0;
+    word-break: break-all;
+    overflow: hidden;
+}
+.ask{
+    color: gray;
+}
+.share{
+    color: #00b4ff;
+}
+.job{
+    color: #ff2ccf;
+}
