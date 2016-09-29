@@ -17,11 +17,7 @@ module.exports = {
             mdrender: true
         };
         apiUrl += serialize(params);
-        fetch(apiUrl).then(function (res) {
-            res.json().then(function(data){
-                responseData(data, callback);
-            });
-        });
+        request(apiUrl, callback);
     },
     getTopic: function (topicId, callback) {
         var params = {
@@ -30,23 +26,23 @@ module.exports = {
         };
         var apiUrl = 'https://cnodejs.org/api/v1/topic/' + topicId + '?';
         apiUrl += serialize(params);
-        fetch(apiUrl).then(function (res) {
-            res.json().then(function(data){
-                responseData(data, callback);
-            });
-        });
+        request(apiUrl, callback);
     }
 };
 
-function responseData(data, callback) {
-    if(!data.success){
-        console.log('接口调用异常！');
-        return;
-    }
-    setTimeout(function () {
-        callback(data);
-    }, 300);
-
+function request(url, callback) {
+    console.log('request: ' + url);
+    fetch(url).then(function (res) {
+        res.json().then(function(data){
+            if(!data.success){
+                console.log('接口调用异常！');
+                return;
+            }
+            setTimeout(function () {
+                callback(data);
+            }, 300);
+        });
+    });
 }
 
 function serialize(object) {
