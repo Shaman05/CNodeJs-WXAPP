@@ -32,7 +32,7 @@ module.exports = {
 
 function request(url, callback) {
     console.log('request: ' + url);
-    fetch(url).then(function (res) {
+    /*fetch(url).then(function (res) {
         res.json().then(function(data){
             if(!data.success){
                 console.log('接口调用异常！');
@@ -42,7 +42,17 @@ function request(url, callback) {
                 callback(data);
             }, 300);
         });
-    });
+    });*/
+    wx.request({
+        url: url,
+        data: {},
+        header: {
+            'Content-Type': 'application/json'
+        },
+        success: function(res) {
+            callback(res.data);
+        }
+    })
 }
 
 function serialize(object) {

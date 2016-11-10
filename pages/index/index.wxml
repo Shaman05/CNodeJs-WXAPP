@@ -17,7 +17,7 @@
             <block wx:if="{{isRefresh}}">
                 <text class="is-refresh">正在刷新数据...</text>
             </block>
-            <block wx:for="{{topics}}" wx:for-item="topic">
+            <block wx:for="{{topics}}" wx:key="unique" wx:for-item="topic">
                 <view class="topic-item {{test}}">
                     <view class="topic-h">
                         <text class="topic-type top" wx:if="{{topic.top === true}}">置顶</text>
